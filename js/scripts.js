@@ -62,3 +62,13 @@ $("#book2 > .book-img > img", ).attr({
 $("#book3 > .book-img > img", ).attr({
   "src": book3.bookImage
 });
+
+var $image = $("img").attr("src",book1.bookImage)
+var $title = $("<h1>").text(book1.title)
+var $author = $("<h2>").text(book1.author)
+var $price = $("<div>").append("$" + book1.price)
+var $price = $("<div>").append($title, $author, $price)
+var $book1 = $("div").append($image, $info)
+
+
+$("#content").prepend($book1)
