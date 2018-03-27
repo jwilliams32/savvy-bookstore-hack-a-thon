@@ -10,12 +10,10 @@ body {
   display: grid;
   margin: 0;
   padding: 0;
-  grid-template-rows: 50px minmax(0, 100%) minmax(0, 100%) 1fr 50px;
-  grid-template-areas:
-    "header"
-    "content"
-    "form"
-    "footer";
+}
+
+.radio-container > input {
+  margin: 1rem;
 }
 
 #navigation {
@@ -58,7 +56,8 @@ body {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  margin-top: 50px;
+  padding-top: 100px;
+  padding-bottom: 50px;
 }
 
 #header h1{
@@ -108,4 +107,8 @@ body {
 
 #footer li:hover {
   color: #d83108;
+}
+
+#form {
+  padding: 2rem;
 }

@@ -98,20 +98,31 @@ products.albums.forEach( appendToPage );
 
 $( "#books" ).click( () => console.log( products.books ) );
 $( "#music" ).click( () => console.log( products.albums ) );
-
+// event is a funciton
 $( "form" ).on( "submit", ( event ) => {
+    // event is an object
+    // target is an element on the page
+    // serializeArray looks at each part of the form as an array
+    // ex name:"title",value:"hello World"
     var data = $( event.target ).serializeArray();
+    // injecting into the form formObject
+    // console.log(data) to view the data
     var formObject = {};
+    // preventDefault prevents other actions from happening such as posting a form
 
     event.preventDefault();
-
+    // adding sellingPoints inside of the empty object
     formObject.sellingPoints = [];
-
+    // data is the name and the value of everything in the form
+    // name and value are the objects
+    // field is the input of the for
     data.forEach( ( field ) => {
         if( field.name === "sellingPoints" ){
+            // push sellingPoints to a prexisiting sellingPoints due to it being an array
             formObject.sellingPoints.push( field.value );
         }
         else{
+            // value is the input and replaces name
             formObject[ field.name ] = field.value;
         }
     } );
@@ -119,6 +130,6 @@ $( "form" ).on( "submit", ( event ) => {
     formObject.id = products[formObject.type].length + 1;
 
     products[formObject.type].push( formObject );
-
+    // appendToPage can take any object and append it to the page
     appendToPage( formObject );
 } );
