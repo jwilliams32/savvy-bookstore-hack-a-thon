@@ -118,7 +118,7 @@ $( "form" ).on( "submit", ( event ) => {
 
     products[formObject.type].push( formObject );
 
-    appendToPage( formObject );
+    appendToPage( formObject.type );
 } );
 
 // what's going on here?
